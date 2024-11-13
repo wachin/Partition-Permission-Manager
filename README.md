@@ -1,8 +1,5 @@
 # Partition-Permission-Manager
 
-
-# Tutorial de Partition Permission Manager
-
 Este tutorial explica cómo instalar y usar Partition Permission Manager, una herramienta gráfica para gestionar permisos de grupos y usuarios en particiones ext4 en sistemas Linux, especialmente útil para sistemas Debian/KDE.
 
 ## Requisitos Previos
@@ -46,6 +43,7 @@ python3 KDE_TK_Group_Manager.py
 ```
 
 ## Uso del Programa
+
 El siguiente uso que le voy a dar porque he creado un Linux desde cero instalando Debian 12 Netinstall CD y he instalado el entorno de KDE pero no completo sino solo para usar los programas como Dolphin, Kate, K3B, y otros, o sea no he instalado los paquetes del entorno de escritorio de KDE. Y necesito crear un grupo y allí añadir mi usuario para poder gestionar el permiso para acceder a una particion ext4 de un disco duro externo, pero no deseo instalar: gnome-system-tools como lo explico en un [tutorial](https://facilitarelsoftwarelibre.blogspot.com/2022/09/como-dar-acceso-una-particion-para.html), así que esta es la solución:
 
 ![](vx_images/164962322289383.png)
@@ -67,22 +65,82 @@ El programa tiene tres secciones principales:
 
 ## Ejemplo de Uso para Dar permisos a una partición ext4 en un Disco Duro Externo
 
-1. **Crear un nuevo grupo**:
+El siguiente es mi Disco Duro Toshiba visto en Gparted:
+
+![](vx_images/417371513289384-Toshiba-HDD.webp)
+
+
+**Proceso para reducir espacio en HDD**
+A mi HDD yo con Gparted le reduje espacio, al estar conectado el HDD y abrir Gparted, si usted había entrado desde el Administrador de Archivos a revisar algún archivo entonces estará montado, pero se puede desmontar en Gparted seleccionado la partición y clic en "Desmontar" así:
+
+![](vx_images/124215495846907.webp)
+
+y clic derecho en "Redimensionar/Mover:
+
+![](vx_images/203036804635999.webp)
+
+ y lo dejé con 286 GB" y le puse la etiqueta ext4
+Si no le puso la etiqueta se la puede poner después (debe estar desmontada la partición):
+ 
+![](vx_images/133581928961750.webp)
+
+pero después de crear la partición ext4 dentro del HDD no tengo acceso a crear ningún archivo en el Administrador de archivos:
+
+![](vx_images/183112492910154.webp)
+
+para solucionarlo:
+
+1. **Manage Groups** Crear un nuevo grupo
    - Escribe "allusers" en "Group Name"
    - Haz clic en "Create Group"
    - Ingresa tu contraseña de administrador cuando se solicite
+   
+debe quedar así:
 
-2. **Agregar un usuario al grupo**:
+![](vx_images/528020921596796.webp)
+
+2. **Manage Users** Agregar un usuario al grupo
    - Selecciona "allusers" de la lista de grupos
    - Escribe el nombre de usuario en "Username"
    - Haz clic en "Add to Group"
    - Ingresa tu contraseña cuando se solicite
 
-3. **Establecer permisos en una partición**:
+3. **Manage Partitions** Establecer permisos en una partición
    - Selecciona "allusers" de la lista de grupos
-   - Ingresa la ruta de la partición (ejemplo: /media/usuario/datos)
+   - Ingresa la ruta de la partición (ejemplo: /media/tuusuario/tuparticion)
+
+Para hacer esto en el Administrador de archivos la partición debe estar montada:
+
+![](vx_images/266080295846907.webp)
+
+usar el atajo:
+
+Ctrl + L
+
+y escribir la ruta:
+
+/media/
+
+dar Enter y allí dar clic en su usuario:
+
+![](vx_images/482615812289384.webp)
+
+en mi caso miusuario es wachin, allí doy doble clic y entro en mi partición:
+
+![](vx_images/12842204635999.webp)
+
+y allí copio la ruta, la muestro con "Ctrl + L" y la copio:
+ 
+![](vx_images/56763027961750.webp)
+
+esa ruta hay que ponerla en el programa, peguela con "Ctrl + V":
+
+![](vx_images/364223291910154.webp)
+
    - Haz clic en "Set Permissions"
    - Ingresa tu contraseña cuando se solicite
+   - Reinicia el ordenador
+   - Cuando entres otra vez ya tendrás acceso a la particón ext4 del Disco Duro Externo
 
 ## Explicación del Código
 
@@ -144,3 +202,5 @@ El programa está construido usando Python y Tkinter, y realiza las siguientes f
    - Verifica que la ruta de la partición sea correcta
    - Asegúrate de que la partición esté montada
    - Comprueba que el sistema de archivos sea ext4
+   
+Dios te bendiga
