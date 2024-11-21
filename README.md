@@ -39,7 +39,7 @@ cd Partition-Permission-Manager
 
 Desde la terminal, dentro de la carpeta del proyecto, ejecuta:
 ```bash
-python3 KDE_TK_Group_Manager.py
+python3 group_manager.py
 ```
 
 ## Uso del Programa
