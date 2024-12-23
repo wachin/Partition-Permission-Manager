@@ -44,24 +44,10 @@ python3 group_manager.py
 
 ## Uso del Programa
 
-El siguiente uso que le voy a dar porque he creado un Linux desde cero instalando Debian 12 Netinstall CD y he instalado el entorno de KDE pero no completo sino solo para usar los programas como Dolphin, Kate, K3B, y otros, o sea no he instalado los paquetes del entorno de escritorio de KDE. Y necesito crear un grupo y allí añadir mi usuario para poder gestionar el permiso para acceder a una particion ext4 de un disco duro externo, pero no deseo instalar: gnome-system-tools como lo explico en un [tutorial](https://facilitarelsoftwarelibre.blogspot.com/2022/09/como-dar-acceso-una-particion-para.html), así que esta es la solución:
+No deseo instalar: gnome-system-tools como lo explico en un [tutorial](https://facilitarelsoftwarelibre.blogspot.com/2022/09/como-dar-acceso-una-particion-para.html) porque estoy usando un Sistema Operativo basado en KDE así que esta es la solución que he crado::
 
 ![](vx_images/164962322289383.png)
 
-El programa tiene tres secciones principales:
-
-### 1. Manage Groups (Gestión de Grupos)
-- **Group Name**: Ingresa el nombre del nuevo grupo que deseas crear
-- **Create Group**: Al hacer clic, te pedirá tu contraseña de administrador y creará el grupo
-- La lista debajo mostrará el grupo creado (también se pueden crear varios)
-
-### 2. Manage Users (Gestión de Usuarios)
-- **Username**: Escribe el nombre del usuario que deseas agregar al grupo. Si no sabes cuál es el nombre del usuario, vea en la terminal de Linux el nombre que está a la izquierda de la arroba ese es el nombre de usuario (y lo que está a la derecha de la arroba es el nombre de la máquina)
-- **Add to Group**: Haz clic para agregar el usuario 
-
-### 3. Manage Partition (Gestión de Particiones)
-- **Partition Path**: Ingresa la ruta completa de la partición (ejemplo: /media/usuario/datos)
-- **Set Permissions**: Establece los permisos de lectura y escritura para el grupo seleccionado
 
 ## Ejemplo de Uso para Dar permisos a una partición ext4 en un Disco Duro Externo
 
@@ -69,9 +55,12 @@ El siguiente es mi Disco Duro Toshiba visto en Gparted:
 
 ![](vx_images/417371513289384-Toshiba-HDD.webp)
 
+ven que tengo creada una partición ext4
 
 **Proceso para reducir espacio en HDD**
-A mi HDD yo con Gparted le reduje espacio, al estar conectado el HDD y abrir Gparted, si usted había entrado desde el Administrador de Archivos a revisar algún archivo entonces estará montado, pero se puede desmontar en Gparted seleccionado la partición y clic en "Desmontar" así:
+Si tal vez se preguntan como hice para hacer una partición ext4 en un Disco Duro externo estos son los pasos:
+- Conectar el Disco Duro al ordenador
+- No debe estar montado, estar montado significa que usted le ha dado clic en algún administrador de archivos para ver su contenido, si fue así debe de desmontarlo dandole clic allí mismo:
 
 ![](vx_images/124215495846907.webp)
 
@@ -79,7 +68,7 @@ y clic derecho en "Redimensionar/Mover:
 
 ![](vx_images/203036804635999.webp)
 
- y lo dejé con 286 GB" y le puse la etiqueta ext4
+y lo dejé con 286 GB" y le puse la etiqueta ext4
 Si no le puso la etiqueta se la puede poner después (debe estar desmontada la partición):
  
 ![](vx_images/133581928961750.webp)
